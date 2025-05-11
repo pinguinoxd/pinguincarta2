@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<audio autoplay loop hidden>
+	<audio id="bg-music" loop hidden>
   		<source src="audiopw.mp3" type="audio/mpeg">
 	</audio>
 <!-- partial:index.partial.html -->
@@ -315,7 +315,19 @@ body  {
   });
 </script>
 
-  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const envelope = document.querySelector(".envelope");
+    const audio = document.getElementById("bg-music");
+
+    envelope.addEventListener("click", function () {
+      if (audio.paused) {
+        audio.play();
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>
